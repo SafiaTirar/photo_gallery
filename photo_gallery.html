@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Photo Gallery</title>
+  <style>
+    /* Style CSS */
+    .gallery {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .gallery-image {
+      width: 150px;
+      height: 150px;
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .gallery-image:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Structure HTML -->
+  <div class="gallery">
+    <img src="https://via.placeholder.com/150" class="gallery-image" alt="Image 1">
+    <img src="https://via.placeholder.com/150" class="gallery-image" alt="Image 2">
+    <img src="https://via.placeholder.com/150" class="gallery-image" alt="Image 3">
+  </div>
+
+  <script>
+    // JavaScript Code
+    function onMouseOver(event) {
+      const image = event.target;
+      image.style.transform = "scale(1.2)"; // Agrandir l'image
+      image.style.border = "2px solid blue"; // Ajouter une bordure bleue
+    }
+
+    function onMouseOut(event) {
+      const image = event.target;
+      image.style.transform = "scale(1)"; // Réduire à la taille normale
+      image.style.border = "none"; // Enlever la bordure
+    }
+
+    // Ajouter des écouteurs d'événements aux images
+    document.querySelectorAll('.gallery-image').forEach(image => {
+      image.addEventListener('mouseover', onMouseOver);
+      image.addEventListener('mouseout', onMouseOut);
+    });
+  </script>
+</body>
+</html>
